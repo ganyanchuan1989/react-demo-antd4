@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { ConfigProvider } from "antd";
+import "antd/dist/antd.css";
+import zhCN from "antd/es/locale/zh_CN";
+import moment from "moment";
+import { Route, HashRouter, Switch } from "react-router-dom";
+import BasicLayout from "./layouts/BasicLayout";
 
-function App() {
+import DemoDate from "./views/DemoDate";
+import DemoTable from "./views/DemoTable";
+
+import "moment/locale/zh-cn";
+moment.updateLocale("zh-cn", {
+  week: {
+    dow: 0,
+  },
+});
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ConfigProvider locale={zhCN}>
+        <HashRouter>
+          <BasicLayout>
+            <Switch>
+              <Route path="/date" title="日期" component={DemoDate}></Route>
+              <Route path="/table" title="表格" component={DemoTable}></Route>
+            </Switch>
+          </BasicLayout>
+        </HashRouter>
+      </ConfigProvider>
     </div>
   );
 }
-
-export default App;
