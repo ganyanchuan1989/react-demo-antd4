@@ -99,10 +99,13 @@ export default class Demo extends React.Component {
   render() {
     const columns = this.state.columns.map((col, index) => ({
       ...col,
-      onHeaderCell: (column) => ({
-        width: column.width,
-        onResize: this.handleResize(index),
-      }),
+      onHeaderCell: (column) => {
+        console.log(">>resize", column.width);
+        return {
+          width: column.width,
+          onResize: this.handleResize(index),
+        };
+      },
     }));
 
     return (

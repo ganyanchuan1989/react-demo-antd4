@@ -8,6 +8,7 @@ import BasicLayout from "./layouts/BasicLayout";
 
 import DemoDate from "./views/DemoDate";
 import DemoTable from "./views/DemoTable";
+import DemoSelect from "./views/DemoSelect";
 
 import "moment/locale/zh-cn";
 moment.updateLocale("zh-cn", {
@@ -25,6 +26,11 @@ export default function App() {
             <Switch>
               <Route path="/date" title="日期" component={DemoDate}></Route>
               <Route path="/table" title="表格" component={DemoTable}></Route>
+              <Route
+                path="/select"
+                title="下拉框"
+                component={DemoSelect}
+              ></Route>
             </Switch>
           </BasicLayout>
         </HashRouter>

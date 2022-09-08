@@ -12,3 +12,7 @@
   cursor: col-resize;
   z-index: 1;
 }
+
+.drag-table-line {
+  border-color: #267de2 !important;
+}
